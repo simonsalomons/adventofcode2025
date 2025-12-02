@@ -29,10 +29,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F41B5EC32EDDBE0E00145C11 /* Exceptions for "AdventOfCode2025CLI" folder in "Inputs" target */ = {
+		F4FC102F2EDEBD98009662E5 /* Exceptions for "AdventOfCode2025CLI" folder in "Inputs" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Resources/input1.txt,
+				Resources/input2.txt,
 			);
 			target = F496BE9F2D036EA200D56C51 /* Inputs */;
 		};
@@ -42,7 +42,7 @@
 		F496BE822D036ADB00D56C51 /* AdventOfCode2025CLI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				F41B5EC32EDDBE0E00145C11 /* Exceptions for "AdventOfCode2025CLI" folder in "Inputs" target */,
+				F4FC102F2EDEBD98009662E5 /* Exceptions for "AdventOfCode2025CLI" folder in "Inputs" target */,
 			);
 			path = AdventOfCode2025CLI;
 			sourceTree = "<group>";
