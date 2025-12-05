@@ -34,6 +34,7 @@
 			membershipExceptions = (
 				Resources/input3.txt,
 				Resources/input4.txt,
+				Resources/input5.txt,
 			);
 			target = F496BE9F2D036EA200D56C51 /* Inputs */;
 		};
