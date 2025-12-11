@@ -51,15 +51,13 @@ func day11() {
 
     print("Part 1:", getPathCount(from: "you", to: "out")) // 543
 
-    let svrToDac = getPathCount(from: "svr", to: "dac", ignore: "fft")
     let svrToFft = getPathCount(from: "svr", to: "fft", ignore: "dac")
-    let dacToFft = getPathCount(from: "dac", to: "fft")
     let fftToDac = getPathCount(from: "fft", to: "dac")
     let dacToOut = getPathCount(from: "dac", to: "out")
-    let fftToOut = getPathCount(from: "fft", to: "out")
 
-    let svrDacFftCount = svrToDac * dacToFft * fftToOut
+    // There are no paths from svr to dac to fft to out because that would create infinite loops
+
     let svrFftDacCount = svrToFft * fftToDac * dacToOut
 
-    print("Part 2:", svrDacFftCount + svrFftDacCount) // 479511112939968
+    print("Part 2:", svrFftDacCount) // 479511112939968
 }
