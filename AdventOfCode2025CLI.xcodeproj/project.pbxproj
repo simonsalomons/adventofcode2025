@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F443E8BB2EEAED000021034C /* SwiftZ3 in Frameworks */ = {isa = PBXBuildFile; productRef = F443E8BA2EEAED000021034C /* SwiftZ3 */; };
 		F496BEA42D036EA900D56C51 /* Inputs.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = F496BEA02D036EA200D56C51 /* Inputs.bundle */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F443E8BB2EEAED000021034C /* SwiftZ3 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +108,7 @@
 			);
 			name = AdventOfCode2025CLI;
 			packageProductDependencies = (
+				F443E8BA2EEAED000021034C /* SwiftZ3 */,
 			);
 			productName = AdventOfCode2024CLI;
 			productReference = F496BE802D036ADB00D56C51 /* AdventOfCode2025CLI */;
@@ -159,6 +162,7 @@
 			mainGroup = F496BE772D036ADB00D56C51;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				F443E8B92EEAED000021034C /* XCRemoteSwiftPackageReference "swift-z3" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F496BE812D036ADB00D56C51 /* Products */;
@@ -419,6 +423,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F443E8B92EEAED000021034C /* XCRemoteSwiftPackageReference "swift-z3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LuizZak/swift-z3.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F443E8BA2EEAED000021034C /* SwiftZ3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F443E8B92EEAED000021034C /* XCRemoteSwiftPackageReference "swift-z3" */;
+			productName = SwiftZ3;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F496BE782D036ADB00D56C51 /* Project object */;
 }

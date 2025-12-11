@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftZ3
 
 func day10() {
     var input = content(file: "input10")
@@ -113,31 +114,40 @@ func day10() {
     func part2() -> Int {
         var sum = 0
         for machine in machines {
-            var lights = [Lights(value: Array(repeating: 0, count: machine.joltages.count), buttonPresses: 0 )]
-            bfs: while true {
-                var newLights: [Lights] = []
-                for light in lights {
-                    for button in machine.buttons {
-                        let adjustedLights = light.pressButton(button, mode: .addJoltage)
+            let context = Z3Context()
 
-                        if adjustedLights.value == machine.joltages {
-                            sum += adjustedLights.buttonPresses
-                            print("Machine done! (\(adjustedLights.buttonPresses))")
-                            break bfs
-                        }
-                        if !adjustedLights.isOverPowered(machine.joltages) {
-                            newLights.append(adjustedLights)
-                        }
+            let optimize = context.makeOptimize()
+
+            var variables: [Z3Int] = []
+
+            for i in 0..<machine.buttons.count {
+                let intVar: Z3Int = context.makeConstant(name: "n\(i)")
+                variables.append(intVar)
+                optimize.assert(intVar >= 0)
+            }
+
+            for (j, joltage) in machine.joltages.enumerated() {
+                var equation: [Z3Int] = []
+                for (b, button) in machine.buttons.enumerated() {
+                    if button.contains(j) {
+                        equation.append(variables[b])
                     }
                 }
-                lights = newLights
+                optimize.assert(equation.reduce(context.makeInteger(0), +) == Int32(joltage))
             }
+
+            let total = variables.reduce(context.makeInteger(0), +)
+            _ = optimize.minimize(total)
+            _ = optimize.check()
+
+            let presses = Int(optimize.getModel().eval(total)?.numeralInt ?? 0)
+            sum += presses
         }
         return sum
     }
 
-//    print("Part 1:", part1()) // 491
+    print("Part 1:", part1()) // 491
 
-    print("Part 2:", part2())
+    print("Part 2:", part2()) // 20617
 }
 
